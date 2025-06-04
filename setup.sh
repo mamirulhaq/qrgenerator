@@ -10,17 +10,17 @@ USE_LOGO=""
 
 # Tanya apakah user ingin menggunakan logo
 while true; do
-    read -p "? Apakah Anda ingin menggunakan logo di QR Code? (Y/n): " yn
+    read -p "? Do you want to use a logo in the QR Code? (Y/n): " yn
     case $yn in
         [Yy]* ) USE_LOGO="yes"; break;;
         [Nn]* ) USE_LOGO="no"; break;;
-        * ) echo "Mohon jawab dengan Y atau n.";;
+        * ) echo "Please answer with Y or n.";;
     esac
 done
 
 # Jika ingin menggunakan logo, beri informasi ke user
 if [ "$USE_LOGO" == "yes" ]; then
-    echo "???  Silakan tempatkan logo Anda di folder: $APP_DIR/static/logo.png"
+    echo "???  Please place your logo in this folder: $APP_DIR/static/logo.png"
     sleep 2
     sed -i 's/^USE_LOGO = .*/USE_LOGO = True/' app.py
 else
@@ -35,12 +35,12 @@ sudo apt install -y zint python3 python3-pip python3-venv
 
 # Membuat virtual environment jika belum ada
 if [ ! -d "venv" ]; then
-  echo "?? Membuat virtual environment di $APP_DIR/venv..."
+  echo "?? Create virtual environment in $APP_DIR/venv..."
   python3 -m venv venv
 fi
 
 # Install dependensi Python dari dalam virtualenv
-echo "?? Menginstall dependensi Python (Flask, Pillow, qrcode)..."
+echo "?? Install dependency Python (Flask, Pillow, qrcode)..."
 $APP_DIR/venv/bin/pip install --upgrade pip
 $APP_DIR/venv/bin/pip install flask Pillow "qrcode[pil]"
 
@@ -49,7 +49,7 @@ chmod +x "$APP_DIR/setup.sh"
 chmod +x "$APP_DIR/app.py"
 
 # Buat file systemd service
-echo "?? Membuat systemd service di $SERVICE_FILE..."
+echo "?? Create systemd service in $SERVICE_FILE..."
 sudo bash -c "cat > $SERVICE_FILE" <<EOF
 [Unit]
 Description=Barcode Flask App
@@ -73,7 +73,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable $SERVICE_NAME
 sudo systemctl restart $SERVICE_NAME
 
-echo "? Setup selesai!"
-echo "?? Aplikasi berjalan sebagai service: $SERVICE_NAME"
-echo "?? Lihat status dengan: sudo systemctl status $SERVICE_NAME"
-echo "?? Lihat log dengan: journalctl -u $SERVICE_NAME -f"
+echo "? Setup done!"
+echo "?? Application running as a service: $SERVICE_NAME"
+echo "?? View status with: sudo systemctl status $SERVICE_NAME"
+echo "?? View log with: journalctl -u $SERVICE_NAME -f"
