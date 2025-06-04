@@ -40,15 +40,15 @@ def index():
     if request.method == 'POST':
         data = request.form['data']
         session['qr_data'] = data
-        session['just_generated'] = True  # ← penanda bahwa baru saja di-generate
+        session['just_generated'] = True
         return redirect(url_for('result'))
     return render_template('index.html')
 
 @app.route('/result')
 def result():
     if not session.get('just_generated'):
-        return redirect(url_for('index'))  # ← tolak jika tidak dari POST
-    session['just_generated'] = False  # ← reset agar tidak bisa refresh terus
+        return redirect(url_for('index'))
+    session['just_generated'] = False
 
     data = session.get('qr_data')
     if not data:

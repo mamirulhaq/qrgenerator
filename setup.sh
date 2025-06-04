@@ -4,7 +4,7 @@ echo "?? Memulai proses setup..."
 
 # Ambil folder saat ini sebagai base path
 APP_DIR=$(pwd)
-SERVICE_NAME="barcode-web"
+SERVICE_NAME="qrgenerator"
 SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
 USE_LOGO=""
 
