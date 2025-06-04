@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Result</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    img {
+      margin-top: 20px;
+      width: 300px;
+      height: 300px;
+    }
+    a.button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>QR Code Berhasil Dibuat</h1>
+  <p><strong>Data:</strong> {{ qr_data }}</p>
+  <img src="data:image/png;base64,{{ qr_img }}" alt="QR Code">
+  <a href="{{ url_for('download') }}" class="button">Download QR Code</a>
+</body>
+</html>

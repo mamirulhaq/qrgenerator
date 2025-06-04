@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+    form {
+      display: flex;
+      gap: 10px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+    }
+    button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buat QR Code</h1>
+  <form method="POST">
+    <input type="text" name="data" placeholder="Masukkan teks atau tautan" required>
+    <button type="submit">Generate</button>
+  </form>
+</body>
+</html>
