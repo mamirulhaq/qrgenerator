@@ -1,1 +1,1 @@
-add logo here [name].png
+add logo here with name logo.png
