@@ -12,4 +12,5 @@ cd qrgenerator
 ./setup.sh
 ```
 
-You can insert your logo in QRgenerator during installation. Upload your logo in folder static and rename with logo.png
+You can insert your logo in QRgenerator during installation. Upload your logo in folder static and rename with logo.png. After installation finished,
+you can access QRgenerator in your web browser with http://<ipaddress>:5000
