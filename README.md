@@ -12,7 +12,7 @@ cd qrgenerator
 ./setup.sh
 ```
 
-You can input your logo in folder 'static'.
+Input your logo in folder 'static'.
 
 # UNINSTALL
 
